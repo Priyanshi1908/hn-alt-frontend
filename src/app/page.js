@@ -3,6 +3,8 @@ import StoryGrid from '../components/StoryGrid';
 import { ThemeProvider } from '../components/ThemeProvider';
 import AnimatedBackground from '../components/AnimatedBackground';
 
+export const runtime = 'edge';
+
 async function fetchStories() {
   try {
     const res = await fetch('https://hn-alt-backend.priyanshideshpande19.workers.dev/', { cache: 'no-store' });
