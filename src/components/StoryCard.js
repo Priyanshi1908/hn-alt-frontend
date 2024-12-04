@@ -1,7 +1,8 @@
-'use client'
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaUser, FaClock, FaComment, FaStar } from 'react-icons/fa';
 
 const StoryCard = ({ story, isHovered }) => {
   return (
@@ -26,7 +27,7 @@ const StoryCard = ({ story, isHovered }) => {
         transition={{ duration: 0.3 }}
       >
         <motion.h2 
-          className="text-lg sm:text-xl md:text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-300 to-gray-100"
+          className="text-lg sm:text-xl md:text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gray-300"
           initial={false}
           animate={{
             scale: isHovered ? 1.05 : 1,
@@ -35,6 +36,24 @@ const StoryCard = ({ story, isHovered }) => {
         >
           {story.title}
         </motion.h2>
+        <div className="text-gray-400 text-sm grid grid-cols-2 gap-x-4 gap-y-2">
+          <div className="flex items-center gap-1">
+            <FaStar className="text-cyan-600" />
+            <span className="ml-1">{story.points}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <FaUser />
+            <span className="ml-1">{story.author}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <FaClock />
+            <span className="ml-1">{story.time}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <FaComment />
+            <span className="ml-1">{story.comments}</span>
+          </div>
+        </div>
       </motion.a>
       <motion.div
         className="absolute inset-0 flex items-center justify-center"
@@ -62,4 +81,3 @@ const StoryCard = ({ story, isHovered }) => {
 };
 
 export default StoryCard;
-
